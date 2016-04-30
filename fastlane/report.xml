@@ -3,17 +3,22 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.00044">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000445">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000466">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000226">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: git_command" time="0.069761">
+      <testcase classname="fastlane.lanes" name="2: git_command" time="0.167038">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: create_pull_request" time="0.915742">
         
       </testcase>
     

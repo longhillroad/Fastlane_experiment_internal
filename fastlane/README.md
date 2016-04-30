@@ -11,37 +11,20 @@ sudo gem install fastlane
 fastlane android test
 ```
 Runs all the tests
-### android beta
+### android createPR
 ```
-fastlane android beta
+fastlane android createPR
 ```
-Submit a new Beta Build to Crashlytics Beta
-### android sdk
-```
-fastlane android sdk
-```
-Test using git commad for library auto release
-### android googlebeta
-```
-fastlane android googlebeta
-```
-Deploy a new version to the Google Play Beta
-
-need to set your Google signing key credentails in envrionmemnt variables KEYSTORE, KEYSTORE_PASSWORD, KEY_ALIAS, and KEY_PASSWORD
-### android deploy
-```
-fastlane android deploy
-```
-Deploy a new version to the Google Play Production
-
-need to set your Google signing key credentails in envrionmemnt variables KEYSTORE, KEYSTORE_PASSWORD, KEY_ALIAS, and KEY_PASSWORD
+create pull request on github
 ### android release
 ```
 fastlane android release
 ```
-make a release. This lane requires: 1) developers should have already added release notes in README.md and modified version number strings in various files;
+make a release. This lane requires: 1) "public" and "origin" remote have been configured; 2) developers should have already added release notes in README.md
 
- 2) there is already a release/x.y.z branch existing. Developers make a PR from release branch to master branch, release engineer merges PR, than run command like
+and modified version number strings in various files; 3) there is already a release/x.y.z branch existing. Developers make a PR from release branch to master
+
+branch, release engineer merges PR, than run command like
 
  fastlane release version_number:"1.3.00"
 
