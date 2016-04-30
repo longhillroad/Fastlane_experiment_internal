@@ -24,6 +24,14 @@ def check_env_var(var_arr)
     }
 end
 
+def check_required_argument(arg)
+    if arg.nil? or arg.empty?
+        puts "please add required argument"
+        exit!
+    end
+end
+
+
 platform :android do
   before_all do
     # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
@@ -34,6 +42,14 @@ platform :android do
     gradle(task: "test")
   end
 
+   desc "create pull request on github"
+   lane :createPR do |options|
+     check_env_var(["GITHUB_API_TOKEN", "RELEASE_USER"])
+     check_required_argument(options[:title])
+     git_command(full_command: "git config user.email " + ENV["RELEASE_USER"])
+     create_pull_request(api_token: ENV["GITHUB_API_TOKEN"], title: options[:title], repo: "longhillroad/Fastlane_experiment_internal", base: "release/1.0.0")
+   end
+										
   desc "make a release. This lane requires: 1) \"public\" and \"origin\" remote have been configured; 2) developers should have already added release notes in README.md"
 	desc "and modified version number strings in various files; 3) there is already a release/x.y.z branch existing. Developers make a PR from release branch to master"
 	desc "branch, release engineer merges PR, than run command like"

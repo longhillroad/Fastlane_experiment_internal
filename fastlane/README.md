@@ -11,6 +11,11 @@ sudo gem install fastlane
 fastlane android test
 ```
 Runs all the tests
+### android createPR
+```
+fastlane android createPR
+```
+create pull request on github
 ### android release
 ```
 fastlane android release
